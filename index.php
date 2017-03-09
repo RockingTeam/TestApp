@@ -1,6 +1,5 @@
 <?php
 
-echo phpinfo();
-echo "Lakshman";
+echo "This is the test the test message";
 
 ?>
