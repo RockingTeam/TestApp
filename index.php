@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST) && !empty($_POST['email']) ){
-	 $to = trim($_POST['email'])
+	 $to = trim($_POST['email']);
 	 $subject = 'testing GIT/Heruko';
 	 $from = 'test@testing.com';
 	 
@@ -17,12 +17,12 @@ if(isset($_POST) && !empty($_POST['email']) ){
 	// Compose a simple HTML email message
 	$message = '<html><body>';
 	$message .= '<h1 style="color:#f40;">Hi Jane!</h1>';
-	$message .= '<p style="color:#080;font-size:18px;">We have revived the below message</p>';
-	$message .= '<p style="color:#080;font-size:18px;">Name: '.$_POST['Name'].'</p>';
-	$message .= '<p style="color:#080;font-size:18px;">Email'.$_POST['email'].'</p>';
-	$message .= '<p style="color:#080;font-size:18px;">Address'.$_POST['address'].'</p>';
-	$message .= '<p style="color:#080;font-size:18px;">Mobile'.$_POST['mobile'].'</p>';
-	$message .= '<p style="color:#080;font-size:18px;">'.$_POST['message'].'</p>';
+	$message .= '<p >We have revived the below message</p>';
+	$message .= '<p >Name: '.$_POST['Name'].'</p>';
+	$message .= '<p >Email'.$_POST['email'].'</p>';
+	$message .= '<p >Address'.$_POST['address'].'</p>';
+	$message .= '<p >Mobile'.$_POST['mobile'].'</p>';
+	$message .= '<p >'.$_POST['message'].'</p>';
 	$message .= '</body></html>';
 	 
 	// Sending email
