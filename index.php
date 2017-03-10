@@ -28,7 +28,7 @@ if(isset($_POST) && !empty($_POST['email']) ){
 	// Sending email
 	if(mail($to, $subject, $message, $headers)){
 		echo 'Your mail has been sent successfully.';
-	} else{
+	  } else{
 		echo 'Unable to send email. Please try again.';
 	}
 
