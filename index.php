@@ -1,22 +1,10 @@
 <?php
+	 
+require 'PHPMailer/PHPMailerAutoload.php';
 
+$mail = new PHPMailer;
+	
 if(isset($_POST) && !empty($_POST['email']) ){
-	
-	
-	print_r($_POST);
-	die;
-	 $to = trim($_POST['email']);
-	 $subject = 'testing GIT/Heruko';
-	 $from = 'test@testing.com';
-	 
-	// To send HTML mail, the Content-type header must be set
-	$headers  = 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-	 
-	// Create email headers
-	$headers .= 'From: '.$from."\r\n".
-		'Reply-To: '.$from."\r\n" .
-		'X-Mailer: PHP/' . phpversion();
 	 
 	// Compose a simple HTML email message
 	$message = '<html><body>';
@@ -28,13 +16,32 @@ if(isset($_POST) && !empty($_POST['email']) ){
 	$message .= '<p >Mobile'.$_POST['mobile'].'</p>';
 	$message .= '<p >'.$_POST['message'].'</p>';
 	$message .= '</body></html>';
-	 
-	// Sending email
-	if(mail($to, $subject, $message, $headers)){
-		echo 'Your mail has been sent successfully.';
-	  } else{
-		echo 'Unable to send email. Please try again.';
+
+	$body                = $message;
+	$body                = eregi_replace("[\]",'',$body);
+	$mail->IsSMTP(); // telling the class to use SMTP
+	$mail->SMTPSecure = 'ssl';
+	$mail->Host          = "smtp.gmail.com";
+	$mail->SMTPAuth      = true;                  // enable SMTP authentication
+	$mail->SMTPKeepAlive = true;                  // SMTP connection will not close after each email sent
+	$mail->Port          = 465;                    // set the SMTP port for the GMAIL server
+	$mail->Username      = "rockingteamf@gmail.com"; // SMTP account username
+	$mail->Password      = "p@ssw0rd1234";        // SMTP account password
+	$mail->SetFrom('admin@testapp.com', 'Test Admin');
+	
+	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+	$mail->MsgHTML($body);
+	$mail->AddAddress($_POST["email"], $_POST["name"]);
+  
+
+	$mail->Subject       = "PHPMailer Test Subject via smtp, basic with authentication";
+
+	if(!$mail->Send()) {
+	    echo "Mailer Error (" . str_replace("@", "&#64;", $row["email"]) . ') ' . $mail->ErrorInfo . '<br />';
+	} else {
+	   echo "Message sent to :" . $row["full_name"] . ' (' . str_replace("@", "&#64;", $row["email"]) . ')<br />';
 	}
+
 
 }
 ?>
