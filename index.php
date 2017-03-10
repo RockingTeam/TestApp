@@ -1,6 +1,10 @@
 <?php
 
 if(isset($_POST) && !empty($_POST['email']) ){
+	
+	
+	print_r($_POST);
+	die;
 	 $to = trim($_POST['email']);
 	 $subject = 'testing GIT/Heruko';
 	 $from = 'test@testing.com';
