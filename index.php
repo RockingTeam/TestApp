@@ -68,7 +68,7 @@ if(isset($_POST) && !empty($_POST['email']) ){
     </div>
 	<div class="form-group">
       <label for="pwd">Message:</label>
-      <textarea  name="message"  class="form-control" placeholder="Message">
+      <textarea  name="message"  class="form-control" placeholder="Message"></textarea>
     </div>
 	
 	
