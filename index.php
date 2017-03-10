@@ -49,7 +49,7 @@ if(isset($_POST) && !empty($_POST['email']) ){
 
 <div class="container">
   <h2>Contact Us Form</h2>
-  <form action ="<?=($_SERVER['PHP_SELF'])?>" >
+  <form action ="<?=($_SERVER['PHP_SELF'])?>"  method="post" >
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control"  name="email" placeholder="Email">
