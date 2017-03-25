@@ -1,6 +1,6 @@
 <?php
 
-/* Test file to set email functionality *
+/* Test file to set email functionality */
 if(isset($_POST) && !empty($_POST['email']) ){
 	 $to = trim($_POST['email']);
 	 $subject = 'testing GIT/Heruko';
